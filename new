@@ -21,7 +21,7 @@ cat > "$DIR/sol.cpp" << 'TEMPLATE'
 #include "lc.hpp"
 
 class Solution {
- public:
+  public:
     // TODO: paste method signature here
 };
 
