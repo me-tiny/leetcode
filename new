@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 <number> <name>"
+    echo "Example: $0 1 two-sum"
+    exit 1
+fi
+
+NUM=$(printf "%04d" "$1")
+NAME="$2"
+DIR="problems/${NUM}-${NAME}"
+
+if [ -d "$DIR" ]; then
+    echo "Problem $DIR already exists!"
+    echo "Opening: $DIR/sol.cpp"
+    exec "${EDITOR:-nvim}" "$DIR/sol.cpp"
+fi
+
+mkdir -p "$DIR"
+cat > "$DIR/sol.cpp" << 'TEMPLATE'
+#include "lc.hpp"
+
+class Solution {
+   public:
+    // TODO: paste method signature here
+};
+
+int main() {
+    Solution s;
+
+    // test cases
+    // example:
+    // expect(s.twoSum({2,7,11,15}, 9), vector<int>{0,1});
+
+    return 0;
+}
+TEMPLATE
+
+echo "Created $DIR/sol.cpp"
+exec "${EDITOR:-nvim}" "$DIR/sol.cpp"
