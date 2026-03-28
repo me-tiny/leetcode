@@ -30,7 +30,10 @@ int main() {
 
     // test cases
     // example:
-    // expect(s.twoSum({2,7,11,15}, 9), vector<int>{0,1});
+    // std::vector<int> t1{1, 2, 3, 1};
+    // expect(s.containsDuplicate(t1), true);
+    // std::vector<int> t2{1, 2, 3, 4};
+    // expect(s.containsDuplicate(t2), false);
 
     return 0;
 }
