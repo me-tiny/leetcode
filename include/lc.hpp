@@ -226,10 +226,51 @@ std::ostream &operator<<(std::ostream &os,
     return os << "]";
 }
 
+// ordered expect
+
+// test cases
 static int _tc = 0;
+
 template <typename T>
 void expect(T got, T want) {
     _tc++;
+    std::ostringstream g, w;
+    g << got;
+    w << want;
+    if (g.str() == w.str())
+        std::cout << "\033[32m✓ TC " << _tc << " passed\033[0m\n";
+    else
+        std::cout << "\033[31m✗ TC " << _tc << " FAILED: got " << g.str()
+                  << ", want " << w.str() << "\033[0m\n";
+}
+
+// unordered expect
+
+template <typename T>
+void expect_unordered(std::vector<T> got, std::vector<T> want) {
+    _tc++;
+    std::sort(got.begin(), got.end());
+    std::sort(want.begin(), want.end());
+    std::ostringstream g, w;
+    g << got;
+    w << want;
+    if (g.str() == w.str())
+        std::cout << "\033[32m✓ TC " << _tc << " passed\033[0m\n";
+    else
+        std::cout << "\033[31m✗ TC " << _tc << " FAILED: got " << g.str()
+                  << ", want " << w.str() << "\033[0m\n";
+}
+
+template <typename T>
+void expect_unordered(std::vector<std::vector<T>> got,
+                      std::vector<std::vector<T>> want) {
+    _tc++;
+    for (auto &v : got)
+        std::sort(v.begin(), v.end());
+    for (auto &v : want)
+        std::sort(v.begin(), v.end());
+    std::sort(got.begin(), got.end());
+    std::sort(want.begin(), want.end());
     std::ostringstream g, w;
     g << got;
     w << want;
