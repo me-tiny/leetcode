@@ -2,7 +2,7 @@
 
 class Solution {
   public:
-    bool containsDuplicate(std::vector<int> nums) {
+    bool containsDuplicate(std::vector<int> &nums) {
         std::unordered_map<int, int> seen;
 
         for (size_t i = 0; i < nums.size(); i++) {
