@@ -34,7 +34,7 @@ int main() {
 
     std::string s2 = "rat";
     std::string t2 = "car";
-    expect(s.isAnagram(s1, t1), true);
+    expect(s.isAnagram(s2, t2), true);
 
     return 0;
 }
