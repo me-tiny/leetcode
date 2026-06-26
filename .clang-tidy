@@ -1,0 +1,38 @@
+---
+# disabled for now
+# -cppcoreguidelines-non-private-member-variables-in-classes,
+# -readability-avoid-const-params-in-decls,
+# -readability-else-after-return,
+# -readability-simplify-boolean-expr,
+# -readability-static-accessed-through-instance,
+# -misc-non-private-member-variables-in-classes,
+# -misc-no-recursion,
+# -misc-use-anonymous-namespace,
+# -misc-use-internal-linkage,
+# -zircon-*
+Checks: >
+    -*,
+    bugprone-*,
+    -bugprone-easily-swappable-parameters,
+    cert-*,
+    clang-analyzer-*,
+    cppcoreguidelines-*,
+    -cppcoreguidelines-avoid-magic-numbers,
+    -cppcoreguidelines-owning-memory,
+    -cppcoreguidelines-pro-type-member-init,
+    modernize-*,
+    -modernize-use-trailing-return-type,
+    performance-*,
+    portability-*,
+    readability-*,
+    -readability-magic-numbers
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*\.hpp'
+FormatStyle: file
+
+CheckOptions:
+  - key: readability-identifier-length.IgnoredVariableNames
+    value: 'x|y|z'
+  - key: readability-identifier-length.IgnoredParameterNames
+    value: 'x|y|z'

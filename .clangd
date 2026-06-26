@@ -1,0 +1,12 @@
+CompileFlags:
+  Add:
+  - -std=c++23
+  - -Wall
+  - -Wextra
+  - -Wpedantic
+  - -Wshadow
+  - -Wconversion
+  - -Wsign-conversion
+  - -Wnull-dereference
+  - -Wdouble-promotion
+  - -Werror=return-type
